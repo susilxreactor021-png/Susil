@@ -1,112 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Portfolio website of Susil Thapa – Full Stack Developer specializing in JavaScript, React, Node.js, and responsive web design.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Susil Thapa | Portfolio</title>
 
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Typed JS -->
   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     html { scroll-behavior: smooth; }
-    .slide-in { transform: translateX(100%); transition: transform 0.3s ease-in-out; }
+    .slide-in { transform: translateX(100%); transition: transform 0.3s ease; }
     .slide-in.active { transform: translateX(0); }
-    .fadeIn { animation: fadeIn 1s ease forwards; opacity: 0; }
-    .fadeIn.delay-200 { animation-delay: 0.2s; }
-    .fadeIn.delay-400 { animation-delay: 0.4s; }
-    @keyframes fadeIn { to { opacity: 1; } }
   </style>
 </head>
 
-<body class="bg-gray-100 text-gray-900 font-sans transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100">
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
 
-<!-- Header -->
-<header class="bg-blue-600 dark:bg-gray-800 text-white shadow-md fixed w-full z-50">
+<!-- HEADER -->
+<header class="fixed w-full z-50 bg-blue-600 dark:bg-gray-800 text-white shadow">
   <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
-    <a href="#home" class="text-xl sm:text-2xl font-bold">Susil Thapa</a>
-    <nav class="hidden md:flex space-x-6">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+    <a href="#home" class="text-2xl font-bold">Susil Thapa</a>
+
+    <nav class="flex items-center gap-4">
+      <ul class="hidden md:flex space-x-6">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <button id="darkToggle" class="text-xl">🌙</button>
+      <button id="menuBtn" class="md:hidden text-2xl">☰</button>
     </nav>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="fixed top-0 right-0 w-3/4 h-full bg-blue-600 dark:bg-gray-800 p-6 slide-in" hidden>
+    <button id="closeMenu" class="text-3xl mb-6">&times;</button>
+    <a href="#home" class="block mb-4">Home</a>
+    <a href="#about" class="block mb-4">About</a>
+    <a href="#projects" class="block mb-4">Projects</a>
+    <a href="#contact" class="block">Contact</a>
   </div>
 </header>
 
 <main class="pt-20">
 
-<!-- Hero -->
-<section id="home" class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white min-h-screen flex flex-col justify-center items-center text-center px-4">
-  <h1 class="text-5xl font-bold mb-4 fadeIn">Hi, I'm Susil Thapa</h1>
-  <p class="text-xl mb-6 fadeIn delay-200"><span id="typed"></span></p>
+<!-- HERO -->
+<section id="home" class="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-4">
+  <h1 class="text-5xl font-bold mb-4">Hi, I'm Susil Thapa</h1>
+  <p class="text-2xl mb-6"><span id="typed"></span></p>
+  <a href="#projects" class="bg-white text-blue-600 px-6 py-3 rounded-full font-bold">
+    View Projects
+  </a>
 </section>
 
-<!-- About -->
-<section id="about" class="max-w-5xl mx-auto py-20 px-6">
-  <h2 class="text-4xl font-bold mb-6 text-center fadeIn">About Me</h2>
-  <p class="text-center max-w-3xl mx-auto text-gray-700 dark:text-gray-300 fadeIn delay-200">
-    Full Stack Developer skilled in JavaScript, React, Node.js and modern UI frameworks.
+<!-- ABOUT -->
+<section id="about" class="max-w-5xl mx-auto py-20 px-6 text-center">
+  <h2 class="text-4xl font-bold mb-6">About Me</h2>
+  <p class="text-gray-700 dark:text-gray-300">
+    I am a passionate <strong>Full Stack Developer</strong> skilled in
+    <span class="text-blue-600">JavaScript, React, Node.js</span>.
   </p>
 </section>
 
-<!-- Projects -->
+<!-- PROJECTS -->
 <section id="projects" class="max-w-6xl mx-auto py-20 px-6">
-  <h2 class="text-4xl font-bold mb-10 text-center fadeIn">My Projects</h2>
+  <h2 class="text-4xl font-bold text-center mb-10">My Projects</h2>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 fadeIn delay-400">
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-    <!-- Project 1 : E-commerce Website -->
-    <div class="group bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
-      <div class="overflow-hidden">
-        <img src="Images/Ecommerce_Website.avif" alt="E-commerce website preview" loading="lazy"
-             class="w-full h-56 object-cover group-hover:scale-110 transition">
-      </div>
+    <!-- E-commerce -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+      <img src="Images/Ecommerce_Website.avif" class="h-56 w-full object-cover">
       <div class="p-6 text-center">
         <h3 class="text-2xl font-bold mb-2">E-commerce Website</h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-4">
-          A responsive e-commerce platform with product listings and cart UI.
+        <p class="mb-4 text-gray-600 dark:text-gray-300">
+          Responsive e-commerce platform with cart UI.
         </p>
         <a href="https://susilxreactor021-png.github.io/Susil_Ecommerce/"
            target="_blank"
-           class="text-blue-600 font-semibold hover:underline">
+           class="text-blue-600 font-semibold">
           View Project
         </a>
       </div>
     </div>
 
-    <!-- Project 2 : Portfolio Website -->
-    <div class="group bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
-      <div class="overflow-hidden">
-        <img src="Images/Portfolio Website.avif" alt="Portfolio website preview" loading="lazy"
-             class="w-full h-56 object-cover group-hover:scale-110 transition">
-      </div>
+    <!-- Portfolio -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+      <img src="Images/Portfolio Website.avif" class="h-56 w-full object-cover">
       <div class="p-6 text-center">
         <h3 class="text-2xl font-bold mb-2">Portfolio Website</h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-4">
-          My personal portfolio showcasing responsive design.
+        <p class="mb-4 text-gray-600 dark:text-gray-300">
+          Personal portfolio showcasing responsive design.
         </p>
-        <a href="#" class="text-blue-600 font-semibold hover:underline">View Project</a>
+        <span class="text-gray-400">Current</span>
       </div>
     </div>
 
-    <!-- Project 3 : Educational Hub -->
-    <div class="group bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
-      <div class="overflow-hidden">
-        <img src="Images/Edu_Hub.png" alt="Educational Hub preview" loading="lazy"
-             class="w-full h-56 object-cover group-hover:scale-110 transition">
-      </div>
+    <!-- Educational Hub -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+      <img src="Images/Edu_Hub.png" class="h-56 w-full object-cover">
       <div class="p-6 text-center">
         <h3 class="text-2xl font-bold mb-2">Educational Hub</h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-4">
-          An educational platform offering learning resources and tutorials.
+        <p class="mb-4 text-gray-600 dark:text-gray-300">
+          Learning resources and tutorials platform.
         </p>
         <a href="https://susilxreactor021-png.github.io/Susil_Hub/"
            target="_blank"
-           class="text-blue-600 font-semibold hover:underline">
+           class="text-blue-600 font-semibold">
           View Project
         </a>
       </div>
@@ -115,17 +124,77 @@
   </div>
 </section>
 
+<!-- CONTACT -->
+<section id="contact" class="py-20 px-6 bg-gradient-to-b from-gray-900 to-gray-800">
+  <h2 class="text-4xl font-bold text-center text-white mb-10">Contact Me</h2>
+
+  <form class="max-w-3xl mx-auto space-y-6">
+    <input type="text" placeholder="Your Name" class="w-full p-4 rounded-lg bg-gray-800 text-white border">
+    <input type="email" placeholder="Your Email" class="w-full p-4 rounded-lg bg-gray-800 text-white border">
+    <textarea rows="6" placeholder="Your Message" class="w-full p-4 rounded-lg bg-gray-800 text-white border"></textarea>
+    <button class="w-full bg-blue-600 py-4 rounded-lg text-white font-semibold">
+      Send Message
+    </button>
+  </form>
+</section>
+
 </main>
 
-<footer class="bg-blue-600 dark:bg-gray-800 text-white p-6 text-center">
-  &copy; 2025 Susil Thapa. All Rights Reserved.
+<!-- FOOTER -->
+<footer class="bg-gray-800 text-white py-8 text-center">
+  <div class="flex justify-center space-x-8 text-2xl mb-4">
+
+    <a href="https://github.com/login" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-github hover:text-blue-400"></i>
+    </a>
+
+    <a href="https://www.linkedin.com/login" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-linkedin hover:text-blue-400"></i>
+    </a>
+
+    <a href="https://www.facebook.com/login" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-facebook hover:text-blue-400"></i>
+    </a>
+
+    <a href="https://twitter.com/login" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-twitter hover:text-blue-400"></i>
+    </a>
+
+  </div>
+
+  <p class="text-sm text-gray-300">
+    © 2025 Susil Thapa. All Rights Reserved.
+  </p>
 </footer>
 
+<!-- SCRIPT -->
 <script>
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const closeMenu = document.getElementById("closeMenu");
+
+  menuBtn.onclick = () => {
+    mobileMenu.hidden = false;
+    mobileMenu.classList.add("active");
+  };
+
+  closeMenu.onclick = () => {
+    mobileMenu.hidden = true;
+    mobileMenu.classList.remove("active");
+  };
+
+  document.getElementById("darkToggle").onclick = () =>
+    document.documentElement.classList.toggle("dark");
+
   new Typed("#typed", {
-    strings: ["Full Stack Developer","Ethical Hacker","Cybersecurity Specialist","Web Enthusiast","Tech Explorer"],
+    strings: [
+      "Full Stack Developer",
+      "Ethical Hacker",
+      "Cybersecurity Specialist",
+      "Web Enthusiast"
+    ],
     typeSpeed: 70,
-    backSpeed: 50,
+    backSpeed: 40,
     loop: true
   });
 </script>
