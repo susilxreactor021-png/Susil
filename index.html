@@ -8,16 +8,20 @@
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Typed JS -->
+  <!-- Typed -->
   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
   <style>
     html { scroll-behavior: smooth; }
-    .slide { transform: translateX(100%); transition: transform 0.3s ease; }
-    .slide.active { transform: translateX(0); }
   </style>
 </head>
 
@@ -28,25 +32,24 @@
   <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
     <h1 class="text-2xl font-bold">Susil Thapa</h1>
 
-    <nav class="flex items-center gap-4">
-      <ul class="hidden md:flex gap-6">
-        <li><a href="#home" class="hover:underline">Home</a></li>
-        <li><a href="#about" class="hover:underline">About</a></li>
-        <li><a href="#projects" class="hover:underline">Projects</a></li>
-        <li><a href="#contact" class="hover:underline">Contact</a></li>
-      </ul>
+    <nav class="hidden md:flex gap-6">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
+    <div class="flex gap-3">
       <button id="darkBtn">🌙</button>
       <button id="menuBtn" class="md:hidden text-2xl">☰</button>
-    </nav>
+    </div>
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobileMenu" class="fixed right-0 top-0 w-3/4 h-full bg-blue-600 dark:bg-gray-800 p-6 slide" hidden>
-    <button id="closeBtn" class="text-3xl mb-6">&times;</button>
-    <a href="#home" class="block mb-4">Home</a>
-    <a href="#about" class="block mb-4">About</a>
-    <a href="#projects" class="block mb-4">Projects</a>
+  <div id="mobileMenu" class="hidden bg-blue-600 dark:bg-gray-800 p-6 md:hidden">
+    <a href="#home" class="block mb-3">Home</a>
+    <a href="#about" class="block mb-3">About</a>
+    <a href="#projects" class="block mb-3">Projects</a>
     <a href="#contact">Contact</a>
   </div>
 </header>
@@ -55,100 +58,72 @@
 
 <!-- HERO -->
 <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-4">
-  <h2 class="text-5xl font-bold mb-4">Hi, I'm Susil Thapa</h2>
-  <p class="text-2xl mb-6"><span id="typed"></span></p>
-  <a href="#projects" class="bg-white text-blue-600 px-6 py-3 rounded-full font-bold hover:scale-105 transition">
+  <h2 class="text-5xl font-bold mb-4" data-aos="fade-down">Hi, I'm Susil Thapa</h2>
+  <p class="text-2xl mb-6" data-aos="fade-up"><span id="typed"></span></p>
+  <a href="#projects" class="bg-white text-blue-600 px-6 py-3 rounded-full font-bold" data-aos="zoom-in">
     View Projects
   </a>
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="max-w-5xl mx-auto py-20 px-6 text-center">
-  <h2 class="text-4xl font-bold mb-6">About Me</h2>
-  <p class="text-gray-700 dark:text-gray-300">
+  <h2 class="text-4xl font-bold mb-6" data-aos="fade-up">About Me</h2>
+  <p class="text-gray-700 dark:text-gray-300" data-aos="fade-up" data-aos-delay="200">
     I am a <strong>Full Stack Developer</strong> skilled in
     <span class="text-blue-600">JavaScript, React, Node.js</span>,
-    building modern and responsive applications.
+    creating modern and responsive web applications.
   </p>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects" class="max-w-6xl mx-auto py-20 px-6">
-  <h2 class="text-4xl font-bold text-center mb-12">Projects</h2>
+  <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Projects</h2>
 
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
     <!-- PROJECT CARD -->
-    <a href="https://susilxreactor021-png.github.io/Susil_Ecommerce/"
-       target="_blank"
-       class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden
-              transform transition duration-300 hover:-translate-y-3 hover:shadow-2xl
-              active:scale-95">
-
-      <div class="overflow-hidden">
-        <img src="Images/Ecommerce_Website.avif"
-             class="h-56 w-full object-cover transition duration-300 group-hover:scale-110">
-      </div>
-
-      <div class="p-6 text-center">
+    <div class="relative group rounded-xl overflow-hidden shadow-lg" data-aos="zoom-in">
+      <img src="Images/Ecommerce_Website.avif" class="h-56 w-full object-cover transition group-hover:scale-110">
+      <div class="absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition">
         <h3 class="text-2xl font-bold mb-2">E-commerce Website</h3>
-        <p class="text-gray-600 dark:text-gray-300">
-          Online shopping UI with responsive layout.
-        </p>
+        <a href="https://susilxreactor021-png.github.io/Susil_Ecommerce/" target="_blank"
+           class="bg-blue-600 px-5 py-2 rounded-full">
+          View Project
+        </a>
       </div>
-    </a>
+    </div>
 
-    <!-- PROJECT CARD -->
-    <a href="#"
-       class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden
-              transform transition duration-300 hover:-translate-y-3 hover:shadow-2xl
-              active:scale-95 cursor-default">
-
-      <div class="overflow-hidden">
-        <img src="Images/Portfolio Website.avif"
-             class="h-56 w-full object-cover transition duration-300 group-hover:scale-110">
-      </div>
-
-      <div class="p-6 text-center">
-        <h3 class="text-2xl font-bold mb-2">Portfolio Website</h3>
-        <p class="text-gray-600 dark:text-gray-300">
-          Personal responsive portfolio.
-        </p>
-        <span class="text-sm text-gray-400">Current</span>
-      </div>
-    </a>
-
-    <!-- PROJECT CARD -->
-    <a href="https://susilxreactor021-png.github.io/Susil_Hub/"
-       target="_blank"
-       class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden
-              transform transition duration-300 hover:-translate-y-3 hover:shadow-2xl
-              active:scale-95">
-
-      <div class="overflow-hidden">
-        <img src="Images/Edu_Hub.png"
-             class="h-56 w-full object-cover transition duration-300 group-hover:scale-110">
-      </div>
-
-      <div class="p-6 text-center">
+    <div class="relative group rounded-xl overflow-hidden shadow-lg" data-aos="zoom-in" data-aos-delay="150">
+      <img src="Images/Edu_Hub.png" class="h-56 w-full object-cover transition group-hover:scale-110">
+      <div class="absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition">
         <h3 class="text-2xl font-bold mb-2">Educational Hub</h3>
-        <p class="text-gray-600 dark:text-gray-300">
-          Learning resources and tutorials platform.
-        </p>
+        <a href="https://susilxreactor021-png.github.io/Susil_Hub/" target="_blank"
+           class="bg-blue-600 px-5 py-2 rounded-full">
+          View Project
+        </a>
       </div>
-    </a>
+    </div>
+
+    <div class="relative group rounded-xl overflow-hidden shadow-lg" data-aos="zoom-in" data-aos-delay="300">
+      <img src="Images/Portfolio Website.avif" class="h-56 w-full object-cover transition group-hover:scale-110">
+      <div class="absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition">
+        <h3 class="text-2xl font-bold mb-2">Portfolio Website</h3>
+        <span class="text-gray-300">Current</span>
+      </div>
+    </div>
 
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="py-20 px-6 bg-gray-800 text-white">
-  <h2 class="text-4xl font-bold text-center mb-8">Contact Me</h2>
-  <form class="max-w-xl mx-auto space-y-4">
-    <input type="text" placeholder="Your Name" class="w-full p-3 rounded bg-gray-700">
-    <input type="email" placeholder="Your Email" class="w-full p-3 rounded bg-gray-700">
-    <textarea rows="5" placeholder="Your Message" class="w-full p-3 rounded bg-gray-700"></textarea>
-    <button class="w-full bg-blue-600 py-3 rounded font-bold hover:bg-blue-700 transition">
+  <h2 class="text-4xl font-bold text-center mb-10" data-aos="fade-up">Contact Me</h2>
+
+  <form id="contactForm" class="max-w-xl mx-auto space-y-4" data-aos="fade-up" data-aos-delay="200">
+    <input type="text" name="name" placeholder="Your Name" required class="w-full p-3 rounded bg-gray-700">
+    <input type="email" name="email" placeholder="Your Email" required class="w-full p-3 rounded bg-gray-700">
+    <textarea name="message" rows="5" placeholder="Your Message" required class="w-full p-3 rounded bg-gray-700"></textarea>
+    <button type="submit" class="w-full bg-blue-600 py-3 rounded font-bold">
       Send Message
     </button>
   </form>
@@ -167,38 +142,45 @@
   <p class="text-sm text-gray-400">© 2025 Susil Thapa</p>
 </footer>
 
-<!-- SCRIPT -->
+<!-- SCRIPTS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-  const menuBtn = document.getElementById("menuBtn");
-  const closeBtn = document.getElementById("closeBtn");
-  const mobileMenu = document.getElementById("mobileMenu");
-  const darkBtn = document.getElementById("darkBtn");
+  AOS.init({ duration: 1000, once: true });
 
-  menuBtn.onclick = () => {
-    mobileMenu.hidden = false;
-    mobileMenu.classList.add("active");
-  };
-
-  closeBtn.onclick = () => {
-    mobileMenu.classList.remove("active");
-    mobileMenu.hidden = true;
-  };
-
-  if (localStorage.theme === "dark") {
-    document.documentElement.classList.add("dark");
-  }
-
-  darkBtn.onclick = () => {
-    document.documentElement.classList.toggle("dark");
-    localStorage.theme =
-      document.documentElement.classList.contains("dark") ? "dark" : "light";
-  };
-
+  // Typed
   new Typed("#typed", {
     strings: ["Full Stack Developer", "Ethical Hacker", "Tech Explorer"],
     typeSpeed: 70,
     backSpeed: 40,
     loop: true
+  });
+
+  // Dark Mode
+  const darkBtn = document.getElementById("darkBtn");
+  if (localStorage.theme === "dark") document.documentElement.classList.add("dark");
+  darkBtn.onclick = () => {
+    document.documentElement.classList.toggle("dark");
+    localStorage.theme = document.documentElement.classList.contains("dark") ? "dark" : "light";
+  };
+
+  // Mobile Menu
+  document.getElementById("menuBtn").onclick = () =>
+    document.getElementById("mobileMenu").classList.toggle("hidden");
+
+  // EmailJS
+  (function(){
+    emailjs.init("YOUR_PUBLIC_KEY");
+  })();
+
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+      .then(() => {
+        alert("Message sent successfully!");
+        this.reset();
+      }, () => {
+        alert("Failed to send message.");
+      });
   });
 </script>
 
